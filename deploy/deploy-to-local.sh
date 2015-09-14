@@ -1,0 +1,1 @@
+rsync -rvz  wheretogo.com.mx@s161140.gridserver.com:/home/161140/users/.home/domains/wheretogo.com.mx/html/img-up/ /var/www/wheretogo/img-up/ --exclude-from rsync_exclude.txt
