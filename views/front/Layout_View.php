@@ -245,7 +245,7 @@ class Layout_View
 		    <div class="container">
 		        <div class="row">
 		            <div class="grid_4">
-		                <h1><a href="index.html"><img src="/images/logo.jpg" alt="<?php echo $this->data['appInfo']['siteName']; ?>"></a></h1>       
+		                <h1><a href="/"><img src="/images/logo.jpg" alt="<?php echo $this->data['appInfo']['siteName']; ?>"></a></h1>       
 		            </div>
 		            <nav class="grid_8">
 		                <ul class="sf-menu">
@@ -320,7 +320,7 @@ class Layout_View
 		</footer>
 		
 		<!--======= To Top Button =================================-->
-		<a href="index.html#" id="toTop">
+		<a href="/#" id="toTop">
 		    <i class="fa fa-arrow-circle-up"></i>
 		</a>
         <?php
@@ -742,14 +742,11 @@ class Layout_View
 	{
 		ob_start();
 		?>
-		<?php echo self :: getBackground(); ?>	
-		<div id="main-grid" class='inside cf'>
-			<div class="main-wrapper-bg" style="">
-				<?php echo self :: getMenuLeft(); ?>
-				<?php echo self :: getGridCompanies(); ?>
-			</div>
-			<div class="clear"></div>
-		</div>
+		<div class="container gallery">
+    		<?php echo self :: getGridCompanies(); ?>
+    	</div>
+		
+		
 		<?php
 		$coverBody = ob_get_contents();
 		ob_end_clean();
@@ -768,51 +765,15 @@ class Layout_View
 	{
 		ob_start();
 		?>
-		<div id="main_contents">
+		<h3 class="row_title__first"><?php echo $this->data['categoryInfo']['title']; ?></h3>
+		<!-- <h5><?php echo $this->data['appInfo']['siteName']; ?></h5> -->
+		
+		<ul class="row thumbs">
 			<?php
-			if ($this->data['categoryInfo'])
-			{
-			?>
-			<h1>
-				<a href="/<?php echo $this->data['categoryInfo']['category_id'].'/'.Tools::slugify($this->data['categoryInfo']['name']); ?>/">
-					<?php echo $this->data['categoryInfo']['name']; ?> in <?php echo $this->data['appInfo']['location']; ?>
-				
-				<?php 
-				if ($this->data['subcategoryInfo'])
-				{
-					?>
-					 / <?php echo $this->data['subcategoryInfo']['name']; ?>
-					<?php
-				}
-				?>
-				</a>
-			</h1>
-			<div class="clr"></div>
-			<h3><?php echo $this->data['appInfo']['siteName']; ?></h3>
-			<?php	
-			}
-
-			if ($this->data['locationInfo']['name'])
-			{
-			?>
-			<h1 style="text-align: left;">
-				<a href="/location/<?php echo $this->data['locationInfo']['location_id'].'/'.Tools::slugify($this->data['locationInfo']['name']); ?>/">
-					<?php echo $this->data['locationInfo']['name']; ?>
-				</a>
-			</h1>
-				
-			<div class="clr"></div>
-			<h3><?php echo $this->data['appInfo']['siteName']; ?></h3>
-			<?php	
-			}
-			?>
-			<div id="companies-grid" class='inside cf '>
-				<ul class='protips-grid cf'>
-				<?php
 				foreach ($this->data['companies'] as $c)
 				{
 					?>
-					<li class=''>
+					<li class='grid_3'>
 						<?php 
 						if ($c['closed'] == 1) 
 						{
@@ -831,43 +792,42 @@ class Layout_View
 							$link = "/company/".$c['category_id']."/".Tools::slugify($c['category'])."/".$c['company_id']."/".Tools::slugify($c['name'])."/";
 						}
 						?>
-						<article class='protip'>
-							<header>
-								<?php if ($c['date']) { ?><div class="date"><?php echo Tools::formatMYSQLToFront($c['date']); ?></div><?php } ?>
-								<div class="img-cover">
-									<a href="<?php echo $link; ?>" class="title">
-									<?php 
-									if ($c['logo'])
-									{
-									?>
-									    <img src="/img-up/companies_pictures/logo/<?php echo $c['logo']; ?>" 
-									        alt="<?php echo $c['name']; ?>" class="protip_li_img"/>
-									<?php
-									}
-									else
-									{
-									?>
-										<img src="/images/default_item_front.jpg" 
-										    alt="<?php echo $c['name']; ?>"  class="protip_li_img"/>
-									<?php
-									}
-									?>
-									</a>
-							    </div>
-							</header>
-							<a href="<?php echo $link; ?>" class="title"><?php echo $c['name']; ?></a>
-							<footer class='cf'>
-								<?php echo $c['description']; ?>
-							</footer>
-						</article>
+						<div class="box">
+			                <div class="maxheight">
+			                    <a href="<?php echo $link; ?>" >
+			                        <div>
+			                            <div class="lbHover">
+			                                <i class="fa fa-search"></i>
+			                            </div>
+			                            <?php 
+										if ($c['logo'])
+										{
+										?>
+										    <img src="/img-up/companies_pictures/logo/<?php echo $c['logo']; ?>" 
+										        alt="<?php echo $c['name']; ?>" class="protip_li_img"/>
+										<?php
+										}
+										else
+										{
+										?>
+											<img src="/images/default_item_front.jpg" 
+											    alt="<?php echo $c['name']; ?>"  class="protip_li_img"/>
+										<?php
+										}
+										?>
+			                        </div>
+			                    </a>
+			                    <div class="gallery_text-block">
+			                        <p class="p-title"><a href="<?php echo $link; ?>"><?php echo $c['name']; ?></a></p>
+			                        <p><?php echo $c['description']; ?></p>
+			                    </div>
+			                </div>
+			            </div>
 					</li>
 					<?php
 				}
 				?>
-				</ul>
-			</div>
-		</div><!-- main sections -->
-		<div class="clr"></div>
+		</ul>
 		<?php
 		$gridCompanies = ob_get_contents();
 		ob_end_clean();

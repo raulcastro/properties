@@ -9,5 +9,5 @@
 
 deploy/
 databases/
-img-up/
-Framework/Connection_Data.php
+#img-up/
+#Framework/Connection_Data.php
