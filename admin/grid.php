@@ -18,6 +18,6 @@
 	
 	$data 		= $backend->loadBackend($option);
 	
-	$view 		= new Layout_View($data, 'Companies');
+	$view 		= new Layout_View($data, 'Properties');
 	
 	echo $view->printHTMLPage('companies');

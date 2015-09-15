@@ -10,6 +10,6 @@
 	
 	$data 		= $backend->loadBackend($option);
 	
-	$view 		= new Layout_View($data, 'Add Company');
+	$view 		= new Layout_View($data, 'Add Property');
 	
 	echo $view->printHTMLPage('add-company');

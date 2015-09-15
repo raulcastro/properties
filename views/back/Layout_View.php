@@ -255,7 +255,7 @@ class Layout_View
 				<nav id='nav'>
 					<ul>
 						<li><a href="/admin/" class="active">Sign In</a></li>
-						<li><a href="../contact-us/">Sign Up</a></li>
+						<li><a href="#/">Sign Up</a></li>
 					</ul>
 				</nav>
 					<?php 
@@ -265,14 +265,14 @@ class Layout_View
 					?>
 				<nav id='nav'>
 					<ul>
-						<li><a <?php if ($_GET['section'] == 1) echo $active; ?> href="/admin/grid/">Profile</a></li>
-						<li><a <?php if ($_GET['section'] == 2) echo $active; ?> href="/admin/add-company/">Add Company</a></li>
-						<li><a <?php if ($_GET['section'] == 3) echo $active; ?> href="/admin/grid/ ">Companies</a></li>
-						<li><a <?php if ($_GET['section'] == 4) echo $active; ?> href="#">Emails</a></li>
-						<li><a <?php if ($_GET['section'] == 5) echo $active; ?> href="/admin/members/">Members</a></li>
-						<li><a <?php if ($_GET['section'] == 6) echo $active; ?> href="#">Tasks</a></li>
+						<li><a <?php if ($_GET['section'] == 1) echo $active; ?> href="/admin/dashboard/">Dashboard</a></li>
+						<li><a <?php if ($_GET['section'] == 2) echo $active; ?> href="/admin/add-property/">Add Property</a></li>
+						<!-- <li><a <?php if ($_GET['section'] == 3) echo $active; ?> href="/admin/grid/ ">Companies</a></li> -->
+						<!-- <li><a <?php if ($_GET['section'] == 4) echo $active; ?> href="#">Emails</a></li> -->
+						<!-- <li><a <?php if ($_GET['section'] == 5) echo $active; ?> href="/admin/members/">Members</a></li> -->
+						<!-- <li><a <?php if ($_GET['section'] == 6) echo $active; ?> href="#">Tasks</a></li> -->
 						<li><a <?php if ($_GET['section'] == 7) echo $active; ?> href="/admin/main-gallery/">Main Gallery</a></li>
-						<li><a <?php if ($_GET['section'] == 8) echo $active; ?> href="/admin/videos/">Videos</a></li>
+						<!-- <li><a <?php if ($_GET['section'] == 8) echo $active; ?> href="/admin/videos/">Videos</a></li> -->
 						<li><a <?php if ($_GET['section'] == 9) echo $active; ?> href="/admin/settings/">Settings</a></li>
 						<li><a <?php if ($_GET['section'] == 10) echo $active; ?> href="#">Sign Out</a></li>
 					</ul>
@@ -401,7 +401,7 @@ class Layout_View
    			<div class='inside cf'>
    				<ul class='filter-nav' id='x-scopes'>
    					<li>
-   						<a href="/admin/grid/"
+   						<a href="/admin/properties/"
    								<?php
    								if($curCat == '')
    								{
@@ -415,7 +415,7 @@ class Layout_View
    						</a>
    					</li>
    					<li>
-   						<a href="/admin/grid/promoted/">Promoted</a>
+   						<a href="/admin/properties/promoted/">Promoted</a>
    					</li>
     				<?php
    					$i = 0;
@@ -425,7 +425,7 @@ class Layout_View
    					    $i++;
    				    ?>
    			        <li>
-   						<a href="/admin/grid/<?php echo $c['category_id']; ?>/<?php echo Tools::slugify($c['name']); ?>/"
+   						<a href="/admin/properties/<?php echo $c['category_id']; ?>/<?php echo Tools::slugify($c['name']); ?>/"
    							<?php
    							if($curCat == $c['category_id'])
    							{
@@ -536,7 +536,7 @@ class Layout_View
    								?>
    								<img src="<?php echo $logo; ?>" />
    							</header>
-   							<a href="/admin/company/main/<?php echo $a['company_id']; ?>/<?php echo Tools::slugify($a['name']); ?>/" class="title hyphenate track x-mode-popup" ><?php echo $a['name']; ?></a>
+   							<a href="/admin/property/main/<?php echo $a['company_id']; ?>/<?php echo Tools::slugify($a['name']); ?>/" class="title hyphenate track x-mode-popup" ><?php echo $a['name']; ?></a>
    							<footer class='cf'>
    								<ul class='author'>
    									<li class='user'>
@@ -892,14 +892,14 @@ class Layout_View
     	ob_start();
     	?>
     	<header>
-    		<a href="/admin/company/settings/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Settings</a>
-   			<a href="/admin/company/events/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Events</a>
-   			<a href="/admin/company/social/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Social</a>
-   			<a href="/admin/company/contact/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Contact</a>
-   			<a href="/admin/company/media/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Media</a>
-   			<a href="/admin/company/seo/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">SEO</a>
-   			<a href="/admin/company/info/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Info</a>
-   			<a href="/admin/company/main/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Dashboard</a>
+    		<a href="/admin/property/settings/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Settings</a>
+   			<!-- <a href="/admin/property/events/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Events</a> -->
+   			<!-- <a href="/admin/property/social/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Social</a> -->
+   			<!-- <a href="/admin/property/contact/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Contact</a> -->
+   			<a href="/admin/property/media/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Media</a>
+   			<a href="/admin/property/seo/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">SEO</a>
+   			<a href="/admin/property/info/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Info</a>
+   			<a href="/admin/property/main/<?php echo $this->data['company']['general']['company_id']; ?>/<?php echo Tools::slugify($this->data['company']['general']['name']); ?>/" id="">Dashboard</a>
    			<div class="clr"></div>
    		</header>
    		<h1><?php echo $this->data['company']['general']['name']; ?></h1>
@@ -1588,26 +1588,26 @@ class Layout_View
 				<a href="javascript:void(0);" <?php if ($this->data['company']['general']['main_promoted'] == 1) echo 'class="active"';?>>Main Promoted</a>
 				<div class="clr"></div>
 				
-				<a href="javascript:void(0);">Category Promoted</a>
-				<div class="clr"></div>
+<!-- 				<a href="javascript:void(0);">Category Promoted</a> -->
+<!-- 				<div class="clr"></div> -->
 				
-				<a href="javascript:void(0);">Subcategory Promoted</a>
-				<div class="clr"></div>
+<!-- 				<a href="javascript:void(0);">Subcategory Promoted</a> -->
+<!-- 				<div class="clr"></div> -->
 				
-				<a href="javascript:void(0);">Hide Phones</a>
-				<div class="clr"></div>
+<!-- 				<a href="javascript:void(0);">Hide Phones</a> -->
+<!-- 				<div class="clr"></div> -->
 				
-				<a href="javascript:void(0);">Hide E-mails</a>
-				<div class="clr"></div>
+<!-- 				<a href="javascript:void(0);">Hide E-mails</a> -->
+<!-- 				<div class="clr"></div> -->
 				
-				<a href="javascript:void(0);">Hide Website</a>
-				<div class="clr"></div>
+<!-- 				<a href="javascript:void(0);">Hide Website</a> -->
+<!-- 				<div class="clr"></div> -->
 				
 				<a href="javascript:void(0);" <?php if ($this->data['company']['general']['published'] == 1) echo 'class="active"';?> id="publish-company">Published</a>
 				<div class="clr"></div>
 				
-				<a href="javascript:void(0);" <?php if ($this->data['company']['general']['closed'] == 0) echo 'class="active"';?> id="close-company">Open</a>
-				<div class="clr"></div>
+<!-- 				<a href="javascript:void(0);" <?php if ($this->data['company']['general']['closed'] == 0) echo 'class="active"';?> id="close-company">Open</a> -->
+<!-- 				<div class="clr"></div> -->
 				
 				<a href="javascript:void(0);" class="delete">Delete</a>
 				<div class="clr"></div>
@@ -1647,7 +1647,7 @@ class Layout_View
 		<div class="content-box">
 		
 			<div class="add-company-box">
-				<h1>Company Name</h1>
+				<h1>Property Name</h1>
 				<input type="text" id="new-company-name" value="" />
 				<div>
 					<a href="javascript: void(0);" class="button" id="create-company">Create</a>
@@ -2409,9 +2409,9 @@ class Layout_View
     			<nav id='footer-nav'>
 					<ul class='footer-links cf'>
 						<li><a href="../contact-us/">Contact</a></li>
-						<li><a href="#">API &amp; Hacks</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Privacy Policy</a></li>
+						<!-- <li><a href="#">API &amp; Hacks</a></li> -->
+						<!-- <li><a href="#">FAQ</a></li> -->
+						<!-- <li><a href="#">Privacy Policy</a></li> -->
 						<li><a href="#">Terms of Service</a></li>
 					</ul>
 					<ul class='copyright'>

@@ -672,7 +672,7 @@ function publishCompany(pictureId)
 function closeCompany(pictureId)
 {
 	companyId 	= $('#companyId').val();
-	todo = 1;
+	todo 		= 1;
 	
 	if ($('#close-company').attr('class') == 'active')
 	{
@@ -719,7 +719,7 @@ function createCompany()
         {
             if ('0' != xml)
             {
-            	$('#create-company-next').attr('href', '/admin/company/main/'+xml+'/new-company/');
+            	$('#create-company-next').attr('href', '/admin/property/main/'+xml+'/new-property/');
             	$('#create-company').slideUp();
             	$('#create-company-next').show();
             }

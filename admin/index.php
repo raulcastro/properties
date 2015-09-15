@@ -12,7 +12,7 @@
 	
 	$db =  new Mysqli_Tool(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 	
-	$typesPages = array(1=>"grid/");
+	$typesPages = array(1=>"dashboard/");
 	
 	$control = new sessionControl($db,
 			'users',

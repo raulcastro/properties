@@ -38,22 +38,23 @@ RewriteRule ^contact-us/$ /contact.php
 #   Admin section
 
 #   Edit  companies
-RewriteRule ^admin/company/main/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company.php?company=$1
-RewriteRule ^admin/company/info/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-info.php?company=$1
-RewriteRule ^admin/company/seo/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-seo.php?company=$1
-RewriteRule ^admin/company/social/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-social.php?company=$1
-RewriteRule ^admin/company/contact/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-contact.php?company=$1
-RewriteRule ^admin/company/media/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-media.php?company=$1
-RewriteRule ^admin/company/events/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-events.php?company=$1
-RewriteRule ^admin/company/settings/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-settings.php?company=$1
+RewriteRule ^admin/property/main/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company.php?company=$1
+RewriteRule ^admin/property/info/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-info.php?company=$1
+RewriteRule ^admin/property/seo/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-seo.php?company=$1
+RewriteRule ^admin/property/social/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-social.php?company=$1
+RewriteRule ^admin/property/contact/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-contact.php?company=$1
+RewriteRule ^admin/property/media/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-media.php?company=$1
+RewriteRule ^admin/property/events/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-events.php?company=$1
+RewriteRule ^admin/property/settings/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/edit-company-settings.php?company=$1
 
 #   Add company
-RewriteRule ^admin/add-company/$ /admin/add-company.php?1&section=2
+RewriteRule ^admin/add-property/$ /admin/add-company.php?1&section=2
 
 # grid
-RewriteRule ^admin/grid/$ /admin/grid.php?section=3
-RewriteRule ^admin/grid/promoted/$ /admin/grid.php?promoted=1&section=3
-RewriteRule ^admin/grid/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/grid.php?categoryId=$1&section=3
+RewriteRule ^admin/dashboard/$ /admin/grid.php?section=3
+RewriteRule ^admin/properties/$ /admin/grid.php?section=3
+RewriteRule ^admin/properties/promoted/$ /admin/grid.php?promoted=1&section=3
+RewriteRule ^admin/properties/([0-9]+)/([A-Za-z0-9-]+)/$ /admin/grid.php?categoryId=$1&section=3
 
 #   main-sliders
 RewriteRule ^admin/main-gallery/$ /admin/main-gallery.php?section=7
