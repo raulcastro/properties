@@ -249,8 +249,8 @@ class Layout_View
 				if ($this->section == 'sign-in')
 				{
 					?>
-				<a class='logo' href='/admin/'>
-					<span>where to go</span>
+				<a href='/admin/' class="logo">
+					<span><?php echo $this->data['appInfo']['siteName']; ?></span>
 				</a>
 				<nav id='nav'>
 					<ul>
@@ -327,7 +327,7 @@ class Layout_View
 						<h1>Sign in</h1>
 					</header>
 					<div class='inside-panel'>
-						<p>ready for the fun?</p>
+						<p><?php echo $this->data['appInfo']['siteName']; ?></p>
 						
 						<form id="slick-login" method='post' 
 								action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -356,7 +356,7 @@ class Layout_View
 				
 				<p class='sign-up-terms'>
 					Need an account?
-					<a href="../contact-us/"><?php echo $this->data['appInfo']['siteName']; ?></a>.
+					<a href="#"><?php echo $this->data['appInfo']['siteName']; ?></a>.
 				</p>
 			
 			</div><!-- /panel sign-up-panel -->
