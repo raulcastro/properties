@@ -11,4 +11,4 @@
 	
 	define ('DB_USER', 'db161140_2go');
 	define ('DB_PASS', 'where2GO');
-	define ('DB_NAME', 'db161140_2go');
+	define ('DB_NAME', 'db161140_properties');
