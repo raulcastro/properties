@@ -143,10 +143,26 @@ class Layout_View
 		<meta property="og:site_name" content="<?php echo $this->data['appInfo']['siteName']; ?> />
 		<link rel='canonical' href="<?php echo $this->data['appInfo']['url']; ?>" />
 		<?php echo self::getCommonDocuments(); ?>
-		<script type="text/javascript" src="/js/front/swipe.js"></script>
-		<script type="text/javascript" src="/js/front/init-swipe-main.js"></script>
-		<script type="text/javascript" src="/js/front/jquery.swipebox.js"></script>
-		<script type="text/javascript" src="/js/front/init-swipe-box-videos-main.js"></script>
+		<link rel="stylesheet" href="/css/front/camera.css">
+		
+		<script src="/js/front/camera.js"></script>
+		
+		<script>
+	        $(document).ready(function(){
+	            jQuery('#camera_wrap').camera({
+	                playPause: false,
+	                loader: 'none',
+	                pagination: true,
+	                minHeight: '40',
+	                thumbnails: false,
+	                height: '35,555555555555555555555555555556%',
+	                caption: true,
+	                navigation: false,
+	                fx: 'scrollHorz',
+	                transPeriod: 500
+	            });
+	        });
+	     </script>
 		
 		<?php echo self::getGoogleAnalytics(); 
 		
@@ -159,12 +175,35 @@ class Layout_View
     {
     	ob_start();
     	?>
-    	<link href="/css/front/style.css" media="screen" rel="stylesheet" type="text/css" />
-    	<link href="/css/front/responsive.css" media="screen" rel="stylesheet" type="text/css" />
-    	<link href="/css/front/swipebox.css" media="screen" rel="stylesheet" type="text/css" />
+    	<link rel="stylesheet" href="/css/front/style.css">
+     	<link rel="stylesheet" href="/css/front/font-awesome.min.css">
     	    
 		<script type="text/javascript" src="/js/jquery.js"></script>
-		<script type="text/javascript" src="/js/front/scripts.js"></script>
+		<script src="/js/front/jquery-migrate-1.2.1.js"></script>
+	    <script src="/js/front/jquery.easing.1.3.js"></script>
+	    <script src="/js/front/jquery.ui.totop.js"></script>
+	    <script src="/js/front/jquery.equalheights.js"></script>
+		<script src="/js/front/script.js"></script>
+	    <script src="/js/front/superfish.js"></script>
+	    <script src="/js/front/jquery.mobilemenu.js"></script>
+		<script type="text/javascript" src="/js/front/script.js"></script>
+		
+		<!--[if (gt IE 9)|!(IE)]><!-->
+		<script src="/js/front/jquery.mobile.customized.min.js"></script>
+		<!--<![endif]-->
+		<script>
+
+		 <!--[if lt IE 8]>
+	       <div style=' clear: both; text-align:center; position: relative;'>
+	         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+	           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+	         </a>
+	      </div>
+	    <![endif]-->
+	    <!--[if lt IE 9]>
+	   		<script src="js/html5shiv.js"></script>
+	    	<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+	    <![endif]-->
     	<?php 
     	$documents = ob_get_contents();
     	ob_end_clean();
