@@ -186,7 +186,8 @@ class Layout_Model
 					LEFT JOIN seo s ON s.company_id = c.company_id 
 					LEFT JOIN categories cat ON c.category = cat.category_id 
 					LEFT JOIN company_logo cl ON cl.company_id = c.company_id
-					WHERE c.main_promoted = 1';
+					WHERE c.main_promoted = 1
+					GROUP BY c.company_id';
 			return $this->db->getArray($query);
 		} catch (Exception $e) {
 			return false;

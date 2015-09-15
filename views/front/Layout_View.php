@@ -73,7 +73,7 @@ class Layout_View
 			}
 			?>
 		</head>
-		<body id="protip-single">
+		<body>
 			<?php 
 			echo self :: getHeader();
 			  
@@ -200,10 +200,9 @@ class Layout_View
 	         </a>
 	      </div>
 	    <![endif]-->
-	    <!--[if lt IE 9]>
-	   		<script src="js/html5shiv.js"></script>
-	    	<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
-	    <![endif]-->
+	   </script>
+	    	
+	    
     	<?php 
     	$documents = ob_get_contents();
     	ob_end_clean();
@@ -214,18 +213,15 @@ class Layout_View
 	{
 		ob_start();
 		?>
-		<meta name="google-site-verification"
-			content="XWQT2lk9oiUbiaKw7UgqRoPGF5OhvDOm7NWYIjWYbKg" />
-
-		<script type="text/javascript">
-  			var _gaq = _gaq || [];
-  			_gaq.push(['_setAccount', 'UA-9301117-22']);
-  			_gaq.push(['_trackPageview']);
-			(function() {
-   			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-   			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  			})();
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-37520668-6', 'auto');
+		  ga('send', 'pageview');
+		
 		</script>
 		<?php 
 		$google = ob_get_contents();
@@ -244,170 +240,46 @@ class Layout_View
 	{
 		ob_start();
 		?>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/mx_MX/all.js#xfbml=1";
-		  fjs.parentNode.insertBefore(js, fjs);
-		  $('.messageBody').attr('color', '#fff');
-		}(document, 'script', 'facebook-jssdk'));</script>
-		
-		<header id='masthead'>
-			<div class='inside-masthead cf'>
-				<a class='logo' href='/'>
-					<span><?php echo $this->data['appInfo']['siteName']; ?></span>
-				</a>
-				<nav id="social">
-					<ul>
-						<li>
-							<a href="http://www.facebook.com/<?php echo $this->data['appInfo']['facebook']; ?>"
-									target="_blank">
-								<img src="/images/facebook.png" 
-									alt="<?php echo $this->data['appInfo']['siteName']; ?> - Facebook">
-							</a>
-						</li>
-						<li>
-							<a href="http://twitter.com/<?php echo $this->data['appInfo']['twitter']; ?>"
-									target="_blank">
-								<img src="/images/twitter.png" 
-									alt="<?php echo $this->data['appInfo']['siteName']; ?> - Twitter">
-							</a>
-						</li>
-						<li>
-							<a href="http://www.youtube.com/user/<?php echo $this->data['appInfo']['youtube']; ?>"
-									target="_blank">
-								<img src="/images/youtube.png" 
-									alt="<?php echo $this->data['appInfo']['siteName']; ?>- Youtube">
-							</a>
-						</li>
-						
-						<li>
-							<a href="http://www.pinterest.com/<?php echo $this->data['appInfo']['pinterest']; ?>"
-									target="_blank">
-								<img src="/images/pinterest.png" 
-									alt="<?php echo $this->data['appInfo']['siteName']; ?> - Pinterest">
-							</a>
-						</li>
-						
-						<li>
-							<a href="http://instagram.com/<?php echo $this->data['appInfo']['instagram']; ?>"
-									target="_blank">
-								<img src="/images/instagram.png" 
-									alt="<?php echo $this->data['appInfo']['siteName']; ?> - Instagram">
-							</a>
-						</li>
-					</ul>
-				</nav>
-				
-				<nav id='nav'>
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/map/">Map</a></li>
-						<li><a href="/contact-us/">Contact</a></li>
-						<li><a href="/contact-us/">Afiliate</a></li>
-						<li><a href="http://wheretogoplaya.com/">Espa&ntilde;ol</a></li>
-					</ul>
-				</nav>
-			</div>
-			
-			<section class='new-main-content cf' id='x-protips-grid'>
-				<?php 
-					echo self::getTopMenu();
-					echo self::getSearchBar(); 
-				?>
-			</section>
+		<!--============================== Header =================================-->
+		<header>
+		    <div class="container">
+		        <div class="row">
+		            <div class="grid_4">
+		                <h1><a href="index.html"><img src="/images/logo.jpg" alt="<?php echo $this->data['appInfo']['siteName']; ?>"></a></h1>       
+		            </div>
+		            <nav class="grid_8">
+		                <ul class="sf-menu">
+		                    <li class="current"><a href="/">Home</a></li>
+		                    
+		                    <li class="with-ul"><a href="/">Listing</a>                    
+		                        <ul>
+		                        <?php
+								foreach ($this->data['categories'] as $c)
+								{
+								?>
+								<li>
+									<a href="/<?php echo Tools::slugify($c['category_id']); ?>/<?php echo Tools::slugify($c['name']); ?>/"><?php echo $c['name']; ?></a>
+<!-- 									<ul> -->
+<!-- 	                                    <li><a href="condos-for-rent.html#">Condos</a></li> -->
+<!-- 	                                    <li><a href="homes-for-rent.html#">Homes</a></li> -->
+<!-- 	                                </ul> -->
+								</li>
+								<?php
+								}
+								?>
+		                       </ul>
+		                    </li>
+		                    <li><a href="/contact-us/">About Us</a></li>
+		                    <li><a href="/contact-us/">Contact</a></li>
+		                </ul>
+		            </nav>
+		        </div>
+		    </div>
 		</header>
 		<?php
 		$header = ob_get_contents();
 		ob_end_clean();
 		return $header;
-	}
-	
-	/**
-	 * getTopMenu
-	 *
-	 * it returns the menu of the categories
-	 *
-	 * @return string
-	 */
-	public function getTopMenu()
-	{
-		ob_start();
-		?>		
-		<div class='filter-bar' id='x-scopes-bar'>
-			<div class='inside cf'>
-				<navigation-menu>
-					<ul class='filter-nav' id='x-scopes'>
-						<?php
-						foreach ($this->data['categories'] as $c)
-						{
-						?>
-						<li><a href="/<?php echo Tools::slugify($c['category_id']); ?>/<?php echo Tools::slugify($c['name']); ?>/"><?php echo $c['name']; ?></a></li>
-						<?php
-						}
-						?>
-						<li><a href="/events/">Events</a></li>
-					</ul>
-					<select onchange="if (this.value) window.location.href = this.value;">
-						<option>Navigate To...</option><option value="/">Home</option>
-						<?php
-							foreach ($this->data['categories'] as $c)
-							{
-							?>
-						<option value="/<?php echo Tools::slugify($c['category_id']); ?>/<?php echo Tools::slugify($c['name']); ?>/"><?php echo $c['name']; ?></option>
-							<?php
-							}
-						?>
-						<option value="/events/">Events</option>
-						<option value="/contact-us/">Contact Us</option>
-						<option value="/contact-us/">Afiliate Us</option>
-					</select>
-				</navigation-menu>
-				<ul class='toggle-nav'>
-					<li>
-						<a class='action search' href='#' id='x-show-search'></a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<?php
-		$topBar = ob_get_contents();
-		ob_end_clean();
-		return $topBar;
-	}
-		
-	/**
-	 * getSearchBar
-	 * 
-	 * returns the search bar that appers when the search icon is clicked
-	 * @return string
-	 */
-	public static function getSearchBar()
-	{
-		ob_start();
-		?>
-		<!-- /search bar -->
-		<div class='filter-bar hide search-bar' id='x-search'>
-			<div class='inside cf'>
-				<form class='search-bar' href='#' action="/pre-search.php" method="POST">
-					<input name='term' id='input-search' placeholder='Type here to search, for example: Beach' type='text'>
-					<input type="hidden" name="type" value="0" />
-					<input type="hidden" name="submit" value="GO" id="submit" />
-				</form>
-
-				<ul class='toggle-nav'>
-					<li>
-						<a class='action search' href='#' id='x-hide-search'></a>
-					</li>
-				</ul>
-			</div><!-- /inside cf -->
-		</div>
-		<?php
-		$searchBar = ob_get_contents();
-		ob_end_clean();
-		return $searchBar;
 	}
 	
 	/**
@@ -422,45 +294,35 @@ class Layout_View
 	{
 		ob_start();
 		?>
-		<div class="clear"></div>
-        <footer id='footer'>
-			<div class='inside-footer cf'>
-				<nav id='footer-nav'>
-					<div id="sitemap">
-						<div class="sitemap_section">
-							<strong><?php echo $this->data['appInfo']['siteName']; ?></strong>
-							<ul>
-								<?php echo self :: getCategoriesFooter(); ?>
-							</ul>
-						</div>
-						<div class="sitemap_section">
-							<strong>Our Other Locations</strong>
-							<ul>
-							    <?php echo self :: getLocationsFooter($locations); ?>
-							</ul>							
-						</div>
-						
-						<div class="sitemap_section">
-							<strong>About <?php echo $this->data['appInfo']['siteName']; ?>!</strong>
-							<p><?php echo $this->data['appInfo']['content']; ?></p>
-						</div>
-						
-						<div class="sitemap_section-last">
-							<strong>E-Mail</strong>
-							<p><?php echo $this->data['appInfo']['email']; ?></p>
-							<div class="clr"></div>
-	                        
-							<!-- <strong>Portfolio</strong>
-							<a href="#">take a look of our work</a>
-							<div class="clr"></div> -->
-							
-						</div>
-						<div class="clr"></div>
-					</div>
-				</nav>
-			</div>
+		<!--=======Footer=================================-->
+
+		<footer>
+		    <div class="container">        
+		        <div class="row">
+		            <div class="pr_policy grid_6">
+		                <span><?php echo $this->data['appInfo']['siteName']; ?></span>
+		                &copy;
+		                <span id="copyright-year"> </span>
+		                &bull;
+		                <a href="index-6.html"> Privacy Policy</a>
+		            </div>
+		            <div class="social">
+		                <ul>
+		                    <li><a href="http://www.pinterest.com/<?php echo $this->data['appInfo']['pinterest']; ?>" target="_blank"><div><i class="fa fa-pinterest"></i></div></a></li>
+		                    <li><a href="http://twitter.com/<?php echo $this->data['appInfo']['twitter']; ?>" target="_blank"><div><i class="fa fa-twitter"></i></div></a></li>
+		                    <li><a href="http://www.facebook.com/<?php echo $this->data['appInfo']['facebook']; ?>" target="_blank"><div><i class="fa fa-facebook"></i></div></a></li>
+		                    <li><a href="http://instagram.com/<?php echo $this->data['appInfo']['instagram']; ?>" target="_blank"><div><i class="fa fa-instagram"></i></div></a></li>
+		                </ul>
+		            </div>
+		        </div>
+		    </div>
+		    <!--{%FOOTER_LINK} -->
 		</footer>
-		<div class="clr"></div>
+		
+		<!--======= To Top Button =================================-->
+		<a href="index.html#" id="toTop">
+		    <i class="fa fa-arrow-circle-up"></i>
+		</a>
         <?php
         $footer = ob_get_contents();
         ob_end_clean();
@@ -536,105 +398,81 @@ class Layout_View
     {
     	ob_start();
     	?>
-		<?php echo self :: getBackground(); ?>
-    	
-		<div id="main-grid" class='inside cf'>
-			<div class="main-wrapper-bg">
-				<div id="slideshow" class='swipe'>
-					<div class='swipe-wrap'>
-						<?php echo self::getSwipes(); ?>
-					</div><!-- /slider -->
-					<div class="clr"></div>
-				</div><!--  /slideshow -->
-				
-				<div class="clear"></div>
-				        			
-				<div id="main_sections">
-					<div class="gradient_title">
-						<h3><?php echo $this->data['appInfo']['siteName']; ?></h3>
-					</div>				
-					<?php echo self :: getItemsPromoted(); ?>
-					<div class="clr"></div>
-				</div>
-				        					
-				<div class="clr"></div>
-				
-				<div id="social_content">
-					<div class="gradient_title">
-						<h3>Social networks</h3>
-					</div>
-					<div id="videos_box_index">
-						<div class="box_items video-box">
-							<?php echo  self :: getVideosIndex(); ?>
-						</div>
-						<div class="clr"></div>
-						<a id="more-videos" href="/videos/">
-							See All 
-							<img src="../images/right-arrow.gif" /> 
-						</a>
-					</div><!-- /Videos_box-index -->
-					        					    
-					<div id="twitter_box">
-						<?php echo self :: getTwitterIndex(); ?>
-					</div><!--/Twitter_box-->
-					        					
-					<div id="facebook_index">
-						<?php echo self :: getFacebookIndex(); ?>
-					</div>
-					<div class="clear"></div>
-				</div>
+		<!--========= Camera Slider =========-->
+		<div id="camera_wrap">
+		    <?php echo self::getSwipes(); ?>  
+		</div>
+		
+		<!--========= Info in Column =========-->
+		<div class="container">
+			<div class="row info-col">
+			<?php echo self :: getItemsPromoted(); ?>
 			</div>
-		</div><!-- /main-grid -->
+		</div>
+		
+		<!--========= Ad =========-->
+		<div class="showcase">
+		    <img src="images/page-1_img-5.jpg" alt="Real Estate Playa del Carmen">
+		    <div class="container">
+		        <div class="showcase_text">
+		            <div class="showcase_logo">
+		                <span class="showcase_logo_1"><?php echo $this->data['appInfo']['siteName']; ?></span>
+		            </div>
+		            <h2><?php echo $this->data['appInfo']['description']; ?></h2>
+		            <a href="about-us.html" class="btn btn__in-showcase">read more info</a>
+		        </div>        
+		    </div>
+		</div>
+		
+		<!--========= Text Block =========-->
+		<div class="container text_block">
+		    <h3><?php echo $this->data['appInfo']['siteName']; ?></h3>
+		    <div class="row">
+		        <div class="grid_6">
+		            
+		            <p>We are known for developing quality working relationships with our 
+		            clients based on respect, integrity, and trust . We pride ourselves 
+		            on building a solid foundation for assisting you with all your real 
+		            estate needs. <br>
+		            Whether you are purchasing or selling, we will ensure that you will 
+		            have the support you need to make sound decisions and receive the best 
+		            deal possible.
+		            </p>
+		            
+		            <p class="last">Our goal is to be recognized as the premiere, full 
+		            services real estate firm in Playa del Carmen. This translates to 
+		            you, our client, receiving our full attention with the purpose of 
+		            assisting you in achieving your dream. It is a lofty aspiration 
+		            and one we take seriously.
+		            </p>
+		        </div>
+		        <div class="grid_6">
+		            <p>We offer all aspects of traditional real estate purchase and 
+		            sale services and include every detail attended to with your best 
+		            interests in mind. We have deep and broad knowledge of the unique 
+		            aspects of the Mexican property transaction system and have 
+		            established relationships with professionals that can assist. 
+		            Lawyers, notaries, accountants, tax advisors and property management 
+		            professionals are available that have solid reputations and can 
+		            address your every need.<br>
+		            
+		            We also have a marketing division that focuses on assisting developers 
+		            in bringing their product to market, whether it be single family homes, 
+		            condominium buildings or land subdivisions. Please refer to the links 
+		            provided to be put in contact with professionals who can help you decide 
+		            on the right product for the current market needs.<br>
+		            Should you require the need of full project management services, that 
+		            too is available. Let us work with you to design a program that will 
+		            fit your every need.
+		            
+		            </p>
+		        </div>
+		    </div>
+		</div>
 		<?php
 		$wideBody = ob_get_contents();
         ob_end_clean();
 		return $wideBody;
-    }
-    
-    /**
-     * getBackground
-     * 
-     * return the code for the blur background depending on the section of the 
-     * website
-     * 
-     * @return string
-     */
-    public function getBackground()
-    {
-    	ob_start();
-    	?>
-    	<canvas class="blur" src="/img-up/companies_pictures/logo/<?php echo $this->data['background']; ?>" width="500" height="375"></canvas>
-        			
-        <script>
-        	  var CanvasImage = function (e, t) {
-        			this.image = t, this.element = e, this.element.width = this.image.width, this.element.height = this.image.height;
-        			var n = navigator.userAgent.toLowerCase().indexOf("chrome") > -1,
-        				r = navigator.appVersion.indexOf("Mac") > -1;
-        			n && r && (this.element.width = Math.min(this.element.width, 300), this.element.height = Math.min(this.element.height, 200)), this.context = this.element.getContext("2d"), this.context.drawImage(this.image, 0, 0)
-        		};
-        			
-        		CanvasImage.prototype = {
-        			blur: function (e) {
-        				this.context.globalAlpha = .5;
-        				for (var t = -e; t <= e; t += 2)
-        					for (var n = -e; n <= e; n += 2) this.context.drawImage(this.element, n, t), n >= 0 && t >= 0 && this.context.drawImage(this.element, -(n - 1), -(t - 1));
-        				this.context.globalAlpha = 1
-        			}
-        		}; 
-        			
-        		$(function () {
-        			var e, t, n;
-        			$(".blur").each(function () {
-        				n = this, e = new Image, e.onload = function () {
-        					t = new CanvasImage(n, this), t.blur(4)
-        				}, e.src = $(this).attr("src")
-        			})
-    			});
-    	</script>
-    	<?php 
-    	$background = ob_get_contents();
-    	ob_end_clean();
-    	return $background;
     }
     
 	/**
@@ -655,23 +493,23 @@ class Layout_View
 				if ($a['link'])
 				$link = $a['link'];
 				?>
-				<div>
-					<a href="<?php echo $link; ?>">
-						<img src="/img-up/main-gallery/front/<?php echo $a['name']; ?>" 
-							alt="<?php echo $a['title']; ?>"
-							title="<?php echo $a['title']; ?>" />
-					</a>
-					<?php
-					if($a['promos'])
+				<div data-src="/img-up/main-gallery/front/<?php echo $a['name']; ?>">
+			        <div class="camera_caption">
+			        <?php
+					if ($a['promos'])
 					{
 						?>
-						<div class="promo-swipes">
-							<?php echo $a['promos']; ?>
-						</div><!-- /promo-swipes -->
-						<?php
+			            <div class="container">
+			                <div class="camera_caption_block">
+			                    <h3 class="camera_caption_block_title"><?php echo $a['promos']; ?></h3>
+			                    <a href="<?php echo $link; ?>">Details <i class="fa fa-angle-double-right"></i> </a>
+			                </div>
+			            </div>
+			           <?php
 					}
 					?>
-				</div>
+			        </div>
+			    </div>
 				<?php 
 			}
 		}
@@ -806,48 +644,36 @@ class Layout_View
     	foreach ($this->data['mainPromoted'] as $company)
     	{
     	?>
-    		<div class="item">
-    			<h1><?php echo $company['category_name']; ?></h1>
-    			<a href="/company/<?php echo $company['category_id']; ?>/<?php echo Tools::slugify($company['category_name']); ?>/<?php echo $company['company_id']; ?>/<?php echo Tools::slugify($company['name']); ?>/"
-    			        class="image-item">
-    	        	<div class="img-box">
-            		<?php
-            			if (!$company['logo'])
-            			{
-            			?>
-            			<img src="images/default_item_front.jpg" 
-            			    alt="<?php echo $company['name']; ?>"
-    			        />
-            			<?php
-            			}
-            			else
-            			{
-            			?>
-            			<img src="img-up/companies_pictures/logo/<?php echo $company['logo']; ?>" 
-            			    alt="<?php echo $company['name']; ?>"
-    			        />
-            			<?php
-            			}
-            		?>
-    				</div>        	
-    			</a>
-    			<?php
-    			if ($company)
-    			{
-    			    ?>
-    			<h2><?php echo $company['name']; ?></h2><br />
-    			<p>
-    		    	<?php 
-    				echo $company['description']; 
-    			}
-    			?>
-    			</p>
-       			<a href="/company/<?php echo $company['category_id']; ?>/<?php echo Tools::slugify($company['category_name']); ?>/<?php echo $company['company_id']; ?>/<?php echo Tools::slugify($company['name']); ?>/"
-    				class="more"> 
-    			    View More
-    			    <img src="../images/right-arrow.gif" /> 
-    			</a>
-    		</div>
+    		
+		        <div class="grid_3">
+		            <div class="box">
+		                <div class="maxheight">
+		                    <?php
+		            			if (!$company['logo'])
+		            			{
+		            			?>
+		            			<img src="images/default_item_front.jpg" 
+		            			    alt="<?php echo $company['name']; ?>"
+		    			        />
+		            			<?php
+		            			}
+		            			else
+		            			{
+		            			?>
+		            			<img src="img-up/companies_pictures/logo/<?php echo $company['logo']; ?>" 
+		            			    alt="<?php echo $company['name']; ?>"
+		    			        />
+		            			<?php
+		            			}
+		            		?>
+		                    <div class="info-col_text-block">
+		                        <h4><?php echo $company['name']; ?></h4>
+		                        <p><?php echo $company['description']; ?></p>
+		                        <a href="/property/<?php echo $company['category_id']; ?>/<?php echo Tools::slugify($company['category_name']); ?>/<?php echo $company['company_id']; ?>/<?php echo Tools::slugify($company['name']); ?>/" class="btn">more</a>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
     	<?php
     	}
     	$items = ob_get_contents();
