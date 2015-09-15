@@ -72,10 +72,6 @@ class Layout_View
 					echo self::getAboutHead();
 				break;
 				
-				case 'contact-us':
-					echo self::getVideosHead();
-				break;
-				
 				default:
 				break;
 			}
@@ -1764,6 +1760,7 @@ class Layout_View
     	<meta property="og:url" content="<?php echo $this->data['appInfo']['url']; ?>" />
     	<meta property="og:site_name" content="<?php echo $this->data['appInfo']['siteName']; ?> />
     	<link rel='canonical' href="<?php echo $this->data['appInfo']['url']; ?>" />
+    	<link rel="stylesheet" href="/css/front/form.css">
     	<?php echo self::getCommonDocuments(); ?>
     	<?php echo self::getGoogleAnalytics(); ?>
         <?php
@@ -1783,14 +1780,65 @@ class Layout_View
     {
     	ob_start();
     	?>
-       	<?php echo self :: getBackground(); ?>	
-       	<div id="main-grid" class='inside cf'>
-       		<div class="main-wrapper-bg" style="">
-       			<?php echo self :: getMenuLeft(); ?>
-       			<?php echo self :: getContactForm(); ?>
-       		</div>
-       		<div class="clear"></div>
-       	</div>
+       	<!--======= Content ================================-->
+
+		<!--========= Map & Feedback =========-->
+		<div class="container">
+		    <div class="row">
+		        <div class="grid_8">
+		            <h3 class="row_title__first">How to Find Us</h3>
+		            <div class="map">
+		                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3733.839080465357!2d-87.066186!3d20.635415!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x465961d4f7679788!2s5th+Avenue+Realty+Playa+del+Carmen!5e0!3m2!1ses-419!2smx!4v1411965513805" width="400" height="300" frameborder="0" style="border:0"></iframe>
+		            </div>
+		            <div class="contacts">
+		                <p class="p-title">5th Avenue Realty</p>
+		
+		                <p class="contact_adrress">Calle 38 and 5th Avenue<br>Playa del Carmen</p>
+		                <p><span>Telephone:</span> 01 984 877 5258</p>
+		                <p>E-mail: <a href="mailto:gary@5thavenuerealty.net">gary@5thavenuerealty.net</a></p>
+		
+		                <br>
+		                
+		                <p><span>Telephone:</span> 01 984 157 3402</p>
+		                
+		                <p>E-mail: <a href="jessica@5thavenuerealty.net">jessica@5thavenuerealty.net</a></p>
+		            </div>
+		        </div>
+		        <div class="grid_4 feedback">
+		            <h3 class="row_title__first">Feedback</h3>
+		            <form id="form">
+		                <div class="success_wrapper">
+		                    <div class="success-message">Contact form submitted</div>
+		                </div>
+		                <label class="name">
+		                    <input type="text" placeholder="Name:" data-constraints="@Required @JustLetters" />
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*This is not a valid name.</span>
+		                </label>                  
+		                <label class="email">
+		                    <input type="text" placeholder="E-mail:" data-constraints="@Required @Email" />
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*This is not a valid email.</span>
+		                </label>
+		                <label class="url">
+		                    <input type="text" placeholder="Phone:" data-constraints="@Required @JustNumbers"/>
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*This is not a valid number.</span>
+		                </label>
+		                <label class="message">
+		                    <textarea placeholder="Message:" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*The message is too short.</span>
+		                </label>
+		                <div class="clear"></div>
+		                <div class="btns"> 
+		                    <a class="link1" href="index-5.html#" data-type="reset">Clear</a>
+		                    <a class="link1" href="index-5.html#" data-type="submit">Send</a>
+		                </div>
+		            </form>
+		        </div>
+		    </div>
+		</div>
        	<?php
        	$coverBody = ob_get_contents();
        	ob_end_clean();
