@@ -18,8 +18,8 @@ RewriteRule ^sitemap.xml$ sitemap.xml
 
 # Rewrite Rules
 RewriteRule ^location/([0-9]+)/([A-Za-z0-9-]+)/$ /cover_category.php?location=$1
-RewriteRule ^company/([0-9]+)/([A-Za-z0-9-]+)/([0-9]+)/([A-Za-z0-9-]+)/$ /show_company.php?category=$1&company=$3
-RewriteRule ^company/([0-9]+)/([A-Za-z0-9-]+)/([0-9]+)/([A-Za-z0-9-]+)/([0-9]+)/([A-Za-z0-9-]+)/$ /show_company.php?category=$1&subcategory=$3&company=$5
+RewriteRule ^property/([0-9]+)/([A-Za-z0-9-]+)/([0-9]+)/([A-Za-z0-9-]+)/$ /show_company.php?category=$1&company=$3
+RewriteRule ^property/([0-9]+)/([A-Za-z0-9-]+)/([0-9]+)/([A-Za-z0-9-]+)/([0-9]+)/([A-Za-z0-9-]+)/$ /show_company.php?category=$1&subcategory=$3&company=$5
 RewriteRule ^([0-9]+)/([A-Za-z0-9-]+)/$ /cover_category.php?category=$1
 RewriteRule ^events/([0-9]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([0-9]+)/([A-Za-z0-9-]+)/$ /show_company.php?belong_company=$1&company=$4
 RewriteRule ^events/$ /cover_events.php?category=$1
@@ -33,6 +33,7 @@ RewriteRule ^search/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-
 #Static sites
 RewriteRule ^map/$ /map.php
 RewriteRule ^videos/$ /videos.php
+RewriteRule ^about-us/$ /about-us.php
 RewriteRule ^contact-us/$ /contact.php
 
 #   Admin section

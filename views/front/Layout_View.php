@@ -68,6 +68,14 @@ class Layout_View
 					echo self::getAllEventsHead();
 				break;
 				
+				case 'about-us':
+					echo self::getAboutHead();
+				break;
+				
+				case 'contact-us':
+					echo self::getVideosHead();
+				break;
+				
 				default:
 				break;
 			}
@@ -108,6 +116,10 @@ class Layout_View
 				
 				case 'allEvents':
 					echo self :: getAllEventsContent();
+				break;
+				
+				case 'about-us':
+					echo self :: getAboutContent();
 				break;
 				
 				default:
@@ -191,16 +203,7 @@ class Layout_View
 		<!--[if (gt IE 9)|!(IE)]><!-->
 		<script src="/js/front/jquery.mobile.customized.min.js"></script>
 		<!--<![endif]-->
-		<script>
-
-		 <!--[if lt IE 8]>
-	       <div style=' clear: both; text-align:center; position: relative;'>
-	         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-	           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-	         </a>
-	      </div>
-	    <![endif]-->
-	   </script>
+		
 	    	
 	    
     	<?php 
@@ -269,7 +272,7 @@ class Layout_View
 								?>
 		                       </ul>
 		                    </li>
-		                    <li><a href="/contact-us/">About Us</a></li>
+		                    <li><a href="/about-us/">About Us</a></li>
 		                    <li><a href="/contact-us/">Contact</a></li>
 		                </ul>
 		            </nav>
@@ -644,36 +647,35 @@ class Layout_View
     	foreach ($this->data['mainPromoted'] as $company)
     	{
     	?>
-    		
-		        <div class="grid_3">
-		            <div class="box">
-		                <div class="maxheight">
-		                    <?php
-		            			if (!$company['logo'])
-		            			{
-		            			?>
-		            			<img src="images/default_item_front.jpg" 
-		            			    alt="<?php echo $company['name']; ?>"
-		    			        />
-		            			<?php
-		            			}
-		            			else
-		            			{
-		            			?>
-		            			<img src="img-up/companies_pictures/logo/<?php echo $company['logo']; ?>" 
-		            			    alt="<?php echo $company['name']; ?>"
-		    			        />
-		            			<?php
-		            			}
-		            		?>
-		                    <div class="info-col_text-block">
-		                        <h4><?php echo $company['name']; ?></h4>
-		                        <p><?php echo $company['description']; ?></p>
-		                        <a href="/property/<?php echo $company['category_id']; ?>/<?php echo Tools::slugify($company['category_name']); ?>/<?php echo $company['company_id']; ?>/<?php echo Tools::slugify($company['name']); ?>/" class="btn">more</a>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
+        <div class="grid_3">
+            <div class="box">
+                <div class="maxheight">
+                    <?php
+            			if (!$company['logo'])
+            			{
+            			?>
+            			<img src="images/default_item_front.jpg" 
+            			    alt="<?php echo $company['name']; ?>"
+    			        />
+            			<?php
+            			}
+            			else
+            			{
+            			?>
+            			<img src="img-up/companies_pictures/logo/<?php echo $company['logo']; ?>" 
+            			    alt="<?php echo $company['name']; ?>"
+    			        />
+            			<?php
+            			}
+            		?>
+                    <div class="info-col_text-block">
+                        <h4><?php echo $company['name']; ?></h4>
+                        <p><?php echo $company['description']; ?></p>
+                        <a href="/property/<?php echo $company['category_id']; ?>/<?php echo Tools::slugify($company['category_name']); ?>/<?php echo $company['company_id']; ?>/<?php echo Tools::slugify($company['name']); ?>/" class="btn">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     	<?php
     	}
     	$items = ob_get_contents();
@@ -785,11 +787,11 @@ class Layout_View
 						$link = '';
 						if ($this->data['subcategoryInfo']) 
 						{
-							$link = "/company/".$c['category_id']."/".Tools::slugify($c['category'])."/".$this->data['subcategoryInfo']['subcategory_id']."/".Tools::slugify($this->data['subcategoryInfo']['name'])."/".$c['company_id']."/".Tools::slugify($c['name'])."/";
+							$link = "/property/".$c['category_id']."/".Tools::slugify($c['category'])."/".$this->data['subcategoryInfo']['subcategory_id']."/".Tools::slugify($this->data['subcategoryInfo']['name'])."/".$c['company_id']."/".Tools::slugify($c['name'])."/";
 						} else if ($this->data['section'] == 'allEvents' && $this->data['events']) {
 							$link = "/events/".$c['company_id']."/".Tools::slugify($c['company_name'])."/".Tools::slugify($c['date'])."/".$c['event_id']."/".Tools::slugify($c['name'])."/"; 
 						} else {
-							$link = "/company/".$c['category_id']."/".Tools::slugify($c['category'])."/".$c['company_id']."/".Tools::slugify($c['name'])."/";
+							$link = "/property/".$c['category_id']."/".Tools::slugify($c['category'])."/".$c['company_id']."/".Tools::slugify($c['name'])."/";
 						}
 						?>
 						<div class="box">
@@ -989,63 +991,23 @@ class Layout_View
 		
 		<?php echo self::getCommonDocuments(); ?>
 		
-		<script type="text/javascript" src="/js/front/swipe.js"></script>
-		<script type="text/javascript" src="/js/front/jquery.swipebox.js"></script>
-		<script type="text/javascript" src="/js/front/init-swipe-companies.js"></script>
-		<script type="text/javascript" src="/js/front/init-swipe-box-companies.js"></script>
+		<script src="/js/front/jquery.swipebox.js"></script>
+     	<link rel="stylesheet" href="/css/front/swipebox.css">
+		<script type="text/javascript">
+		;( function( $ ) {
 		
+		    $( '.swipebox' ).swipebox( {
+		        useCSS : true, // false will force the use of jQuery for animations
+		        hideCloseButtonOnMobile : false, // true will hide the close button on mobile devices
+		        hideBarsDelay : 3000, // delay before hiding bars on desktop
+		        loopAtEnd: false // true will return to the first image after the last image is reached
+		    } );
+		
+		} )( jQuery );
+		</script>
 		<?php echo self::getGoogleAnalytics(); ?>
-		<?php
-		if (is_numeric($this->data['company']['general']['latitude']) && is_numeric($this->data['company']['general']['longitude']))
-		{
-			if ($this->data['company']['general']['latitude'] !=  0 && $this->data['company']['general']['longitude'] != 0)
-			{
-			?>
-			<script type="text/javascript"
-					src="https://maps.google.com/maps/api/js?sensor=true">
-			</script>
-			<script type="text/javascript">
-
-			
-			function initialize() {
-				var latlng = new google.maps.LatLng(<?php echo $this->data['company']['general']['latitude']; ?>, <?php echo $this->data['company']['general']['longitude']; ?>);
-						
-				var myOptions = {
-				  zoom: 18,
-				  center: latlng,
-				  mapTypeId: google.maps.MapTypeId.HYBRID
-				};
-						
-				var map = new google.maps.Map(document.getElementById("map_canvas"),
-					myOptions);
-					
-				var contentString = <?php echo self::getMapCompanyGlobe(); ?>
-					
-				var infowindow = new google.maps.InfoWindow({
-					content: contentString,
-					maxWidth: 250
-				});
 		
-				var marker = new google.maps.Marker({
-					position: latlng,
-					title:"<?php echo $this->data['company']['seo']['title']; ?>"
-				});
-					  
-				marker.setMap(map);
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map,marker);
-				});			  
-			}
-				
-			$(window).load(function() {
-				initialize();
-			});
-			
-			</script>
-			<?php
-			}
-		}
-
+		<?php
         $head = ob_get_contents();
         ob_end_clean();
         return $head;
@@ -1100,23 +1062,48 @@ class Layout_View
 	{
 		ob_start();
 		?>
-		<?php echo self :: getBackground(); ?>	
-		<div id="main-grid" class='inside cf'>
-			<div class="main-wrapper-bg" style="">
-				<div id="x-active-preview-pane">
-					<div class="inside cf x-protip-pane">
-						<div class="cf fullpage protip-single tip-container x-protip-content" id="x-protip" >
-							<?php echo self :: getCompanyArticle(); ?>
-							<?php echo self :: getSideBar(); ?>
-							<div class="clr"></div>
-							<!-- comments here -->
-						</div><!-- /x-protip -->
-					</div><!-- /inside cf x-protip-pane -->
-				</div><!-- /x-active-preview-pane -->
-				<div class="clr"></div>
-			</div>
-			<div class="clr"></div>
+		<!--======= Content ================================-->
+
+		<div class="container">
+		    <div class="row">
+		        <div class="grid_12 blog">                                       
+		        	<!--========= Blog =========-->
+		            <h3 class="row_title__first"><?php echo $this->data['company']['general']['name']; ?></h3>
+		            <div class="post row">
+		                <div class="grid_12">
+		                <p class="p-title"><strong><?php echo $this->data['company']['general']['name']; ?></strong></p>
+		                <br><br>
+		
+		                <p class="p-title">
+		
+		
+		                <?php echo stripslashes($this->data['company']['general']['description']); ?>
+		                    
+		                 </p>
+		                </div>
+		
+		                <div class="grid_12 gallery_to">
+							<?php
+							foreach($this->data['company']['gallery'] as $g)
+							{
+							?>
+							<div class="image">
+								<a href="/img-up/companies_pictures/original/<?php echo $g['picture']; ?>" alt="<?php echo $general['name']; ?>" class="swipebox">
+		                        	<img src="/img-up/companies_pictures/galery/<?php echo $g['picture']; ?>" 
+												alt="<?php echo $this->data['company']['general']['name']; ?>">
+		                   		</a>
+		                   	</div>
+							<?php
+							}
+							?>
+		                   
+		                </div>
+		            </div>
+		        </div>
+		        
+		    </div>
 		</div>
+		
 		<?php
 		$content = ob_get_contents();
 		ob_end_clean();
@@ -1189,27 +1176,7 @@ class Layout_View
 			</header>
 					
 			<div class="tip-content">
-				<div id="slider-box" class='swipe-companies'>
-					<div id="inner-slider" class='swipe-wrap-companies'>
-					<?php			
-					if ($this->data['company']['sliders'])
-					{
-						foreach($this->data['company']['sliders'] as $s)
-						{
-						?>
-						<div>
-							<img src="/img-up/companies_pictures/sliders/<?php echo $s['slider']; ?>"
-								alt="<?php echo $this->data['company']['general']['name']; ?>" 
-								title="<?php echo $this->data['company']['general']['name']; ?>" />
-						</div>
-						<?php
-						}
-					}
-					?>				
-					</div>
-				</div>
-				<div class="clr"></div>
-				<!--<h3>Description</h3>-->
+				
 				<div id="description_prev">
 					<?php echo stripslashes($this->data['company']['general']['description']); ?>
 				</div>
@@ -1218,20 +1185,7 @@ class Layout_View
 					<div id="extra-content-box">
 						<div id="extra-content">
 							<div id="company-gallery">
-							<?php
-							foreach($this->data['company']['gallery'] as $g)
-							{
-							?>
-								<div class="image">		
-									<a href="/img-up/companies_pictures/original/<?php echo $g['picture']; ?>"
-											class="swipebox" rel="<?php echo $general['name']; ?>">
-										<img src="/img-up/companies_pictures/galery/<?php echo $g['picture']; ?>" 
-												alt="<?php echo $this->data['company']['general']['name']; ?>">
-									</a>
-								</div>
-							<?php
-							}
-							?>
+							
 							<div class="clr"></div>
 							</div>
 						</div>
@@ -2180,5 +2134,152 @@ class Layout_View
 		ob_end_clean();
 		return $content;
 	}	
+	
+	/**
+	 * getVideosHead
+	 *
+	 * is the head section for the videos
+	 *
+	 * @return string
+	 */
+	public function getAboutHead()
+	{
+		ob_start();
+		?>
+    	<title><?php echo $this->data['appInfo']['title']; ?> | Videos</title>
+    	
+    	<meta name="keywords" content="<?php echo $this->data['appInfo']['keywords']; ?>" />
+    	<meta name="description" content="<?php echo $this->data['appInfo']['description']; ?>" />
+    	<meta property="og:type" content="website" /> 
+    	<meta property="og:url" content="<?php echo $this->data['appInfo']['url']; ?>" />
+    	<meta property="og:site_name" content="<?php echo $this->data['appInfo']['siteName']; ?> />
+    	<link rel='canonical' href="<?php echo $this->data['appInfo']['url']; ?>" />
+    	<?php echo self::getCommonDocuments(); ?>
+    	<?php echo self::getGoogleAnalytics(); ?>
+        <?php
+        $head = ob_get_contents();
+        ob_end_clean();
+        return $head;
+    }	
+	
+    /**
+     * getVideosContent
+     *
+     * it's basically the grid for the videos section
+     *
+     * @return string
+     */
+    public function getAboutContent()
+    {
+    	ob_start();
+    	?>
+    	<!--======= Content ================================-->
+
+		<!--========= Info =========-->
+		
+		<div class="container info">
+		    <h3 class="info_title row_title__first">Real Estate Riviera Maya</h3>
+		    <div class="row thumbs" data-gallery="one">
+		        <div class="grid_4 info_block">
+		            
+		                <div>
+		                    <div class="lbHover">
+		                        <i class="fa fa-search"></i>
+		                    </div>
+		                    <img src="/images/page-2_img-1.jpg" alt="" class="info_img__top">
+		                </div>
+		            
+		            <p>Our executive team has a broad range of skills that are available to 
+		               assist you in achieving your objectives. Please read below of the 
+		               highlights of our professional group
+		               </p>
+		            <!--   <a href="#" class="btn">more</a>  -->
+		        </div>
+		        <div class="grid_4 info_block">
+		            
+		                <div>
+		                    <div class="lbHover">
+		                        <i class="fa fa-search"></i>
+		                    </div>
+		                    <img src="/images/page-2_img-2.jpg" alt="" class="info_img__top">
+		                </div>
+		            
+		            <p>In just a few years this small sleepy fishing village has doubled it's 
+		               population. With the one of the fastest growing populations of any city 
+		               in the world and its location on the Caribbean Sea 
+		            </p>
+		            <!-- <a href="#" class="btn">more</a> -->
+		        </div>
+		        <div class="grid_4 info_block">
+		           
+		                <div>
+		                    <div class="lbHover">
+		                        <i class="fa fa-search"></i>
+		                    </div>
+		                    <img src="/images/page-2_img-3.jpg" alt="" class="info_img__top">
+		                </div>
+		            
+		            <p>We are known for developing quality working relationships with our 
+		            clients based on respect, integrity, and trust . We pride ourselves 
+		            on building a solid foundation for assisting you with all your real estate needs. .
+		             </p>
+		            <!--   <a href="##" class="btn">more</a> -->
+		        </div>
+		    </div>
+		</div>
+		
+		
+		<div class="container">
+		    <div class="row">
+		        <div class="grid_8 list">                               <!--========= List =========-->
+		            <h3 class="list_title">Important Information.</h3>
+		            <div class="list_row">
+		                <div class="list_numb">
+		                    <span>1.</span>
+		                </div>
+		                <p class="p-title"><a href="#">Why Consider Mexico</a></p>
+		                <p>The US & Canadian media jump on any negative Mexican story - often 
+		                   it isn't even verified or correct. And if it is they will always 
+		                   bias it towards the negative.
+		                </p>
+		            </div>
+		            <div class="list_row">
+		                <div class="list_numb">
+		                    <span>2.</span>
+		                </div>
+		                <p class="p-title"><a href="#">Purchase Procedure for non-mexicans</a></p>
+		                <p>Make a written offer containing details of price, dates, conditions, 
+		                   items included or excluded, special circumstances, etc. Accompany your letter 
+		                   with earnest money check to be used as an example of good faith. Attach a 
+		                   Copy of your passport to the offer.
+		                   </p>
+		            </div>
+		            <div class="list_row">
+		                <div class="list_numb">
+		                    <span>3.</span>
+		                </div>
+		                <p class="p-title"><a href="#">Why do non mexicans need a trust</a></p>
+		                <p>For historical reasons, in 1917 the Mexican Congress considered it a matter of 
+		                   national security to limit foreigners from owning property within 100 kilo meters 
+		                   (62 Miles) of the borders, and 50 kilo meters (31 Miles) from the coast, this has 
+		                   hence been included in the Constitution.
+		               </p>
+		            </div>
+		        </div>
+		        <div class="grid_4 info">                           <!--========= Info =========-->
+		            <h3 class="info_title">Vacation Rentals</h3>
+		            <img src="/images/page-2_img-4.jpg" alt="" class="info_img__top">
+		            <p class="p-title"><a href="condos-for-rent.html">See our Listing.</a></p>
+		            <p></p>
+		        </div>
+		    </div>
+		</div>
+		
+		<!--========= Info =========-->
+    	<?php
+    	$coverBody = ob_get_contents();
+    	ob_end_clean();
+    	return $coverBody;
+   	}
 	
 }

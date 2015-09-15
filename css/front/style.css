@@ -938,15 +938,25 @@ footer > div {
 /*Core variables and mixins*/
 
 .gallery_to {
-	max-width: 700px;
+	max-width: 1200px;
 }
 
+.gallery_to .image {
+	width: 200px;
+    height: 160px;
+    float: left;
+    margin: 0 20px 24px 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    behavior: url(border-radius.htc);
+    overflow: hidden;
+}
 .gallery_to a {
 	margin-right: 30px;
 }
 
-.gallery_to a img {
+/*.gallery_to a img {
     width:200px; 
     height:133px;
-}
+}*/
 
