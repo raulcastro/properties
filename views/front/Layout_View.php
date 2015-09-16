@@ -1798,10 +1798,8 @@ class Layout_View
 		                <p>E-mail: <a href="mailto:gary@5thavenuerealty.net">gary@5thavenuerealty.net</a></p>
 		
 		                <br>
-		                
-		                <p><span>Telephone:</span> 01 984 157 3402</p>
-		                
-		                <p>E-mail: <a href="jessica@5thavenuerealty.net">jessica@5thavenuerealty.net</a></p>
+<!-- 		                <p><span>Telephone:</span> 01 984 157 3402</p> -->
+<!-- 		                <p>E-mail: <a href="jessica@5thavenuerealty.net">jessica@5thavenuerealty.net</a></p> -->
 		            </div>
 		        </div>
 		        <div class="grid_4 feedback">
