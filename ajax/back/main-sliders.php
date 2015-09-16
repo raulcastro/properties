@@ -53,11 +53,11 @@ switch ($_GET['option'])
 		
 		if (!empty($_POST))
 		{
-			$dstWidth = 970;
-			$dstImageHeight = 300;
+			$dstWidth 		= 1070;
+			$dstImageHeight = 370;
 			 
-			$source = $root.'img-up/main-gallery/original/'.$_POST['imgId'];
-			$destination = $root.'img-up/main-gallery/front/'.$_POST['imgId'];
+			$source 		= $root.'img-up/main-gallery/original/'.$_POST['imgId'];
+			$destination 	= $root.'img-up/main-gallery/front/'.$_POST['imgId'];
 			 
 			if ($model -> cropImage($_POST, $dstWidth, $dstImageHeight, $source, $destination))
 			{

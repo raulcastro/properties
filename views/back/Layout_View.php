@@ -635,12 +635,13 @@ class Layout_View
 			<script src="/js/back/jquery.drag-n-crop.js"></script>
 			<script src="/js/back/main-sliders.js"></script>
         	<script type="text/javascript">
-			width = 0;
-			height = 0;
-			image = "";
-			x=0;
-			y=0;
-			lastId = 0;
+			width 	= 0;
+			height 	= 0;
+			image 	= "";
+			x		= 0;
+			y		= 0;
+			lastId 	= 0;
+			
 			var dnd;
 			
         	$(document).ready(function()
@@ -667,13 +668,13 @@ class Layout_View
             		source = '/img-up/main-gallery/medium/'+image;
             		$('#crop').attr('src', source);
         			dnd = $('#crop').dragncrop({
-            			instruction: false,
-            			centered: false,
+            			instruction: 	false,
+            			centered: 		false,
             			stop: function(evnt, position){
             			   	dimensions = String(position.dimension);
             			   	res = dimensions.split(",");
-            			   	x = res[0];
-            			   	y = res[1];
+            			   	x 	= res[0];
+            			   	y 	= res[1];
             			  }
                     });
             	}
@@ -781,7 +782,7 @@ class Layout_View
 				<div class="clr"></div>
 			</header>
 			<h1>Main slider</h1>
-			<p>(970px / 300px)</p>
+			<p>(1070px / 370px)</p>
 			
 			<div class="slider-box">
 				<div class="main-slider-upload">
@@ -789,7 +790,7 @@ class Layout_View
 						Upload
 					</div>
 					<div class="crop-box">
-						<div style="width: 880px; height:271px" class="crop-container"> <img src="" id="crop" /></div>
+						<div style="width: 880px; height:304px" class="crop-container"> <img src="" id="crop" /></div>
 					</div>
 					<a href="#" class="button save-crop" id="save-crop">save</a>
 					<div class="clr"></div>
@@ -921,7 +922,6 @@ class Layout_View
    						<?php
    					}
    					?>
-   					
    				</div>
    				<div class="center">
 					<?php 
@@ -1458,14 +1458,15 @@ class Layout_View
 				
 				<div class="mediaSections" >
 					<h1>Logo</h1>
-					<p>(300px / 150px)</p>
+					<p>(270px / 424px)</p>
+<!-- 					<p>(300px / 150px)</p> -->
 					
 					<div class="">
 						<div class="logo-uploader">
 							Upload
 						</div>
 						<div class="logo-box">
-							<div style="width: 300px; height:150px" class="crop-container-logo"> <img src="/img-up/companies_pictures/logo/<?php echo $this->data['company']['logo']['logo']; ?>" id="cropLogo" /></div>
+							<div style="width: 270px; height:424px" class="crop-container-logo"> <img src="/img-up/companies_pictures/logo/<?php echo $this->data['company']['logo']['logo']; ?>" id="cropLogo" /></div>
 						</div>
 						<a href="#" class="button save-crop" id="save-crop-logo">save</a>
 						<div class="clr"></div>

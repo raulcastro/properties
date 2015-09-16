@@ -20,7 +20,7 @@ switch ($_GET['option'])
 		$savePath 		= $root.'/img-up/companies_pictures/original/';
 		$medium 		= $root.'/img-up/companies_pictures/logo-medium/';
 		$pre	  		= 'logo-'.Tools::slugify($_POST['companyName']);
-		$mediumWidth 	= 300;
+		$mediumWidth 	= 270;
 		
 		if ($result = $uploader->handleUpload($savePath, $pre))
 		{
@@ -59,8 +59,8 @@ switch ($_GET['option'])
 		
 		if (!empty($_POST))
 		{
-			$dstWidth = 300;
-			$dstImageHeight = 150;
+			$dstWidth 		= 270;
+			$dstImageHeight = 424;
 			 
 			$source		 = $root.'/img-up/companies_pictures/original/'.$_POST['imgId'];
 			$destination = $root.'/img-up/companies_pictures/logo/'.$_POST['imgId'];
