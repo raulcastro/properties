@@ -396,7 +396,7 @@ class Layout_Model
 			$companyId = (int) $companyId;
 	
 			$query = 'SELECT ubication 
-					FROM companies_ubication 
+					FROM companies_location 
 					WHERE company = '.$companyId.' 
 					GROUP BY ubication';
 				
