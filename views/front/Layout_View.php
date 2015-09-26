@@ -990,6 +990,27 @@ class Layout_View
 		<script src="/js/front/jquery.swipebox.js"></script>
      	<link rel="stylesheet" href="/css/front/swipebox.css">
      	<link rel="stylesheet" href="/css/front/form.css">
+     	<link rel="stylesheet" href="/css/front/camera.css">
+		
+		<script src="/js/front/camera.js"></script>
+		
+		<script>
+	        $(document).ready(function(){
+	            jQuery('#camera_wrap').camera({
+	                playPause: false,
+	                loader: 'none',
+	                pagination: true,
+	                minHeight: '40',
+	                thumbnails: false,
+	                height: '35,555555555555555555555555555556%',
+	                caption: true,
+	                navigation: false,
+	                fx: 'scrollHorz',
+	                transPeriod: 500
+	            });
+	        });
+	     </script>
+     	
 		<script type="text/javascript">
 		;( function( $ ) {
 		
@@ -1070,7 +1091,27 @@ class Layout_View
 		                <div class="grid_8">
 			                <p class="p-title"><strong><?php echo $this->data['company']['general']['name']; ?></strong></p>
 			                <br><br>
-			
+							
+							<!--========= Camera Slider =========-->
+							<div id="camera_wrap">
+							    <?php 
+// 							    var_dump($this->data['company']['sliders']);
+							    if ($this->data['company']['sliders'])
+								{
+									foreach($this->data['company']['sliders'] as $a)
+									{
+										?>
+										<div data-src="/img-up/companies_pictures/sliders/<?php echo $a['slider']; ?>">
+									    </div>
+										<?php 
+									}
+								}
+							    ?>
+							    
+							    
+							</div>
+							<br>
+							<br>
 			                <p class="p-title">
 			
 			
