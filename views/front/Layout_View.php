@@ -989,6 +989,7 @@ class Layout_View
 		
 		<script src="/js/front/jquery.swipebox.js"></script>
      	<link rel="stylesheet" href="/css/front/swipebox.css">
+     	<link rel="stylesheet" href="/css/front/form.css">
 		<script type="text/javascript">
 		;( function( $ ) {
 		
@@ -1062,23 +1063,23 @@ class Layout_View
 
 		<div class="container">
 		    <div class="row">
-		        <div class="grid_12 blog">                                       
+		        <div class="grid_8 blog">                                       
 		        	<!--========= Blog =========-->
 		            <h3 class="row_title__first"><?php echo $this->data['company']['general']['name']; ?></h3>
 		            <div class="post row">
-		                <div class="grid_12">
-		                <p class="p-title"><strong><?php echo $this->data['company']['general']['name']; ?></strong></p>
-		                <br><br>
-		
-		                <p class="p-title">
-		
-		
-		                <?php echo stripslashes($this->data['company']['general']['description']); ?>
-		                    
-		                 </p>
+		                <div class="grid_8">
+			                <p class="p-title"><strong><?php echo $this->data['company']['general']['name']; ?></strong></p>
+			                <br><br>
+			
+			                <p class="p-title">
+			
+			
+			                <?php echo stripslashes($this->data['company']['general']['description']); ?>
+			                    
+			                 </p>
 		                </div>
 		
-		                <div class="grid_12 gallery_to">
+		                <div class="grid_8 gallery_to">
 							<?php
 							foreach($this->data['company']['gallery'] as $g)
 							{
@@ -1095,6 +1096,41 @@ class Layout_View
 		                   
 		                </div>
 		            </div>
+		            
+		        </div>
+		        
+		        <div class="grid_4 feedback">
+		            <h3 class="row_title__first">Request Form</h3>
+		            <form id="form">
+		                <div class="success_wrapper">
+		                    <div class="success-message">Contact form submitted</div>
+		                </div>
+		                <label class="name">
+		                    <input type="text" placeholder="Name:" data-constraints="@Required @JustLetters" />
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*This is not a valid name.</span>
+		                </label>                  
+		                <label class="email">
+		                    <input type="text" placeholder="E-mail:" data-constraints="@Required @Email" />
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*This is not a valid email.</span>
+		                </label>
+		                <label class="url">
+		                    <input type="text" placeholder="Phone:" data-constraints="@Required @JustNumbers"/>
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*This is not a valid number.</span>
+		                </label>
+		                <label class="message">
+		                    <textarea placeholder="Message:" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+		                    <span class="empty-message">*This field is required.</span>
+		                    <span class="error-message">*The message is too short.</span>
+		                </label>
+		                <div class="clear"></div>
+		                <div class="btns"> 
+		                    <a class="link1" href="index-5.html#" data-type="reset">Clear</a>
+		                    <a class="link1" href="index-5.html#" data-type="submit">Send</a>
+		                </div>
+		            </form>
 		        </div>
 		        
 		    </div>
@@ -1893,7 +1929,7 @@ class Layout_View
 						<a href="/#" data-type="reset" class="more_btn">clear</a>
 						<a href="/#" data-type="submit" class="more_btn">submit</a>
 					</div>  
-					<div class="clr"></div
+					<div class="clr"></div>
 				</form>
     		</div>
     	</div><!-- main sections -->
