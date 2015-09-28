@@ -960,3 +960,52 @@ footer > div {
     height:133px;
 }*/
 
+
+
+
+#map_canvas {
+    height: 300px;
+}
+
+.map-company-globe {
+}
+
+.map-company-globe .header {
+    margin-bottom: 5px;
+}
+
+.map-company-globe .header a {
+    color: #373737;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.map-company-globe .content .left {
+    float: left;
+}
+
+.map-company-globe .content .left img {
+    width: 100%;
+    float: left;
+    width: 100px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 8px 9px -6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 9px -6px rgba(0, 0, 0, 0.4);
+    margin: 0 6px 4px 0;
+}
+
+.map-company-globe .content .left a {
+    color: #373737;
+    font-size: 12px;
+    text-align: justify;
+}
+
+#box_map {
+    width: 100%;
+    height: 100%;
+    margin: 110px 0 40px 0;
+}
+
+#general_map {
+    height: 500px;
+} 

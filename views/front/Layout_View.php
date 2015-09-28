@@ -995,7 +995,61 @@ class Layout_View
 		
 		<script src="/js/front/camera.js"></script>
 		
-		<script>
+		
+		
+		<?php
+		if (is_numeric($this->data['company']['general']['latitude']) && is_numeric($this->data['company']['general']['longitude']))
+		{
+			if ($this->data['company']['general']['latitude'] !=  0 && $this->data['company']['general']['longitude'] != 0)
+			{
+			?>
+			<script type="text/javascript"
+					src="https://maps.google.com/maps/api/js?sensor=true">
+			</script>
+			<script type="text/javascript">
+
+			
+			function initialize() {
+				var latlng = new google.maps.LatLng(<?php echo $this->data['company']['general']['latitude']; ?>, <?php echo $this->data['company']['general']['longitude']; ?>);
+						
+				var myOptions = {
+				  zoom: 18,
+				  center: latlng,
+				  mapTypeId: google.maps.MapTypeId.HYBRID
+				};
+						
+				var map = new google.maps.Map(document.getElementById("map_canvas"),
+					myOptions);
+					
+				var contentString = <?php echo self::getMapCompanyGlobe(); ?>
+					
+				var infowindow = new google.maps.InfoWindow({
+					content: contentString,
+					maxWidth: 250
+				});
+		
+				var marker = new google.maps.Marker({
+					position: latlng,
+					title:"<?php echo $this->data['company']['seo']['title']; ?>"
+				});
+					  
+				marker.setMap(map);
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.open(map,marker);
+				});			  
+			}
+				
+			$(window).load(function() {
+				initialize();
+			});
+			
+			</script>
+			<?php
+			}
+		}
+			?>
+			
+			<script>
 	        $(document).ready(function(){
 	            jQuery('#camera_wrap').camera({
 	                playPause: false,
@@ -1024,6 +1078,7 @@ class Layout_View
 		
 		} )( jQuery );
 		</script>
+		
 		<?php echo self::getGoogleAnalytics(); ?>
 		
 		<?php
@@ -1136,6 +1191,20 @@ class Layout_View
 							}
 							?>
 		                   
+		                </div>
+		                
+		                <div class="grid_8">
+		                <?php
+				if (is_numeric($this->data['company']['general']['latitude']) && is_numeric($this->data['company']['general']['longitude']))
+				{
+					if ($this->data['company']['general']['latitude'] !=  0 && $this->data['company']['general']['longitude'] != 0)
+					{
+				?>					
+				<div id="map_canvas"></div>
+				<?php 
+					}
+				}
+				?>	
 		                </div>
 		            </div>
 		            
