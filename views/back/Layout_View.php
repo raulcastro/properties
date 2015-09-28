@@ -976,14 +976,30 @@ class Layout_View
 	        {
 	       		$('#company-description').trumbowyg({
 	       			fullscreenable: false,
-	       			mobile: true,
-	       		    tablet: true,
-	       		 	resetCss: true,
-		       		autogrow: true,
-		       		btns: ['bold', 'italic', 'underline', 'strikethrough', '|', 
-		   	       		'strong', 'em', '|', 
-		   	       		'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', '|', 
-		   	       		'unorderedList', 'orderedList', '|', 'link']
+	       			mobile: 	true,
+	       		    tablet: 	true,
+	       		 	resetCss: 	true,
+		       		autogrow: 	true,
+		       		removeformatPasted: true,
+		       		btns: [
+				       		'bold', 
+				       		'italic', 
+				       		'underline', 
+				       		'strikethrough', 
+				       		'|', 
+		   	       			'strong', 
+		   	       			'em', 
+		   	       			'|', 
+		   	       			'justifyLeft', 
+		   	       			'justifyCenter', 
+		   	       			'justifyRight', 
+		   	       			'justifyFull', 
+		   	       			'|', 
+		   	       			'unorderedList', 
+		   	       			'orderedList', 
+		   	       			'|', 
+		   	       			'link'
+		   	       			]
 		       	});
 	        });
 	        
