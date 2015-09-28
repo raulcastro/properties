@@ -429,40 +429,41 @@ class Layout_View
 		    <div class="row">
 		        <div class="grid_6">
 		            
-		            <p>We are known for developing quality working relationships with our 
-		            clients based on respect, integrity, and trust . We pride ourselves 
-		            on building a solid foundation for assisting you with all your real 
-		            estate needs. <br>
-		            Whether you are purchasing or selling, we will ensure that you will 
-		            have the support you need to make sound decisions and receive the best 
-		            deal possible.
+		            <p>Nos caracterizamos por desarrollar relaciones de trabajo de 
+                       calidad con nuestros clientes basados en el respeto, la integridad 
+                       y la confianza. Estamos orgullosos de contar con una base solida 
+                       con la cual lo asistiremos en todas sus necesidades de bienes raíces. 
+                       Ya sea que usted este comprando o vendiendo, nos aseguraremos de que 
+                       va tener el apoyo para realizar decisiones acertadas y recibir las 
+                       mejores ofertas posibles. 
 		            </p>
 		            
-		            <p class="last">Our goal is to be recognized as the premiere, full 
-		            services real estate firm in Playa del Carmen. This translates to 
-		            you, our client, receiving our full attention with the purpose of 
-		            assisting you in achieving your dream. It is a lofty aspiration 
-		            and one we take seriously.
+		            <p class="last">Nuestra meta es ser reconocidos como la firma de bienes 
+                    raíces principal y de mejor calidad en la Riviera Maya. Esto se traduce
+                    en que usted, nuestro cliente, recibirá toda nuestra atención con el fin
+                    de ayudarle en la realización de su sueño. Es una aspiración elevada que 
+                    nos tomamos en serio. 
 		            </p>
 		        </div>
 		        <div class="grid_6">
-		            <p>We offer all aspects of traditional real estate purchase and 
-		            sale services and include every detail attended to with your best 
-		            interests in mind. We have deep and broad knowledge of the unique 
-		            aspects of the Mexican property transaction system and have 
-		            established relationships with professionals that can assist. 
-		            Lawyers, notaries, accountants, tax advisors and property management 
-		            professionals are available that have solid reputations and can 
-		            address your every need.<br>
+		            <p>Ofrecemos todos los aspectos de los servicios tradicionales de compra 
+                       y venta de bienes raíces e incluimos todos los detalles para que usted 
+                       sea atendido con sus mejores intereses en mente.Tenemos conocimiento 
+                       profundo y amplio de los aspectos únicos del sistema de transacción de 
+                       la propiedad mexicana y hemos establecido relaciones con profesionales 
+                       que nos pueden apoyar.  Abogados, notarios, contadores, asesores fiscales 
+                       y profesionales de administración de propiedades están disponibles para 
+                       usted, cuentan con una sólida reputación y pueden hacer frente a todas 
+                       sus necesidades.<br>
 		            
-		            We also have a marketing division that focuses on assisting developers 
-		            in bringing their product to market, whether it be single family homes, 
-		            condominium buildings or land subdivisions. Please refer to the links 
-		            provided to be put in contact with professionals who can help you decide 
-		            on the right product for the current market needs.<br>
-		            Should you require the need of full project management services, that 
-		            too is available. Let us work with you to design a program that will 
-		            fit your every need.
+		            También contamos con una division de marketing que se centra en ayudar a 
+                    los desarrolladores en llevar su producto al mercado, ya sea que se trate 
+                    de viviendas unifamiliares, edificios de condominios o subdivisiones de 
+                    tierras. Por favor, consulte los enlaces que aparecen para ser puesto en 
+                    contacto con uno de nuestros profesionales que pueden ayudarle a decidir 
+                    sobre el producto adecuado para las necesidades actuales del mercado. Si 
+                    requiere del servicio completo de gestión de proyectos, también está disponible. 
+                    Vamos a trabajar con usted para diseñar un programa que se ajuste a sus necesidades.
 		            
 		            </p>
 		        </div>
@@ -1863,7 +1864,7 @@ class Layout_View
 		<div class="container">
 		    <div class="row">
 		        <div class="grid_8">
-		            <h3 class="row_title__first">How to Find Us</h3>
+		            <h3 class="row_title__first">Visitanos</h3>
 		            <div class="map">
 		                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3733.839080465357!2d-87.066186!3d20.635415!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x465961d4f7679788!2s5th+Avenue+Realty+Playa+del+Carmen!5e0!3m2!1ses-419!2smx!4v1411965513805" width="400" height="300" frameborder="0" style="border:0"></iframe>
 		            </div>
@@ -1871,7 +1872,7 @@ class Layout_View
 		                <p class="p-title">5th Avenue Realty</p>
 		
 		                <p class="contact_adrress">Calle 38 and 5th Avenue<br>Playa del Carmen</p>
-		                <p><span>Telephone:</span> 01 984 877 5258</p>
+		                <p><span>Telefonoe:</span> 01 984 877 5258</p>
 		                <p>E-mail: <a href="mailto:gary@5thavenuerealty.net">gary@5thavenuerealty.net</a></p>
 		
 		                <br>
@@ -1880,7 +1881,7 @@ class Layout_View
 		            </div>
 		        </div>
 		        <div class="grid_4 feedback">
-		            <h3 class="row_title__first">Feedback</h3>
+		            <h3 class="row_title__first">Contactanos</h3>
 		            <form id="form">
 		                <div class="success_wrapper">
 		                    <div class="success-message">Contact form submitted</div>
@@ -1907,8 +1908,8 @@ class Layout_View
 		                </label>
 		                <div class="clear"></div>
 		                <div class="btns"> 
-		                    <a class="link1" href="index-5.html#" data-type="reset">Clear</a>
-		                    <a class="link1" href="index-5.html#" data-type="submit">Send</a>
+		                    <a class="link1" href="index-5.html#" data-type="reset">Limpiar</a>
+		                    <a class="link1" href="index-5.html#" data-type="submit">Enviar</a>
 		                </div>
 		            </form>
 		        </div>
@@ -2301,7 +2302,7 @@ class Layout_View
 		<!--========= Info =========-->
 		
 		<div class="container info">
-		    <h3 class="info_title row_title__first">Real Estate Riviera Maya</h3>
+		    <h3 class="info_title row_title__first">Bienes Raices Riviera Maya</h3>
 		    <div class="row thumbs" data-gallery="one">
 		        <div class="grid_4 info_block">
 		            
@@ -2312,11 +2313,11 @@ class Layout_View
 		                    <img src="/images/page-2_img-1.jpg" alt="" class="info_img__top">
 		                </div>
 		            
-		            <p>Our executive team has a broad range of skills that are available to 
-		               assist you in achieving your objectives. Please read below of the 
-		               highlights of our professional group
+		            <p>Nuestro equipo ejecutivo tiene una amplia gama de habilidades 
+                       disponibles para ayudarle en el logro de sus objetivos. Por favor, 
+                    lea a continuación los puntos mas destacados de nuestro grupo profesional.
 		               </p>
-		            <!--   <a href="#" class="btn">more</a>  -->
+		            <!--   <a href="#" class="btn">más</a>  -->
 		        </div>
 		        <div class="grid_4 info_block">
 		            
@@ -2327,11 +2328,10 @@ class Layout_View
 		                    <img src="/images/page-2_img-2.jpg" alt="" class="info_img__top">
 		                </div>
 		            
-		            <p>In just a few years this small sleepy fishing village has doubled it's 
-		               population. With the one of the fastest growing populations of any city 
-		               in the world and its location on the Caribbean Sea 
+		            <p>En pocos años la población de este pequeño pueblo pesquero se ha duplicado. 
+                      Es una de las ciudades de crecimiento mas rápido en el mundo y del Mar Caribe. 
 		            </p>
-		            <!-- <a href="#" class="btn">more</a> -->
+		            <!-- <a href="#" class="btn">más</a> -->
 		        </div>
 		        <div class="grid_4 info_block">
 		           
@@ -2342,11 +2342,12 @@ class Layout_View
 		                    <img src="/images/page-2_img-3.jpg" alt="" class="info_img__top">
 		                </div>
 		            
-		            <p>We are known for developing quality working relationships with our 
-		            clients based on respect, integrity, and trust . We pride ourselves 
-		            on building a solid foundation for assisting you with all your real estate needs. .
+		            <p>Nos caracterizamos por desarrollar relaciones de trabajo de calidad 
+                       con nuestros clientes basados en el respeto, la integridad y la confianza. 
+                    Estamos orgullosos de contar con una base solida con la cual lo asistiremos 
+                en todas sus necesidades de bienes raíces. 
 		             </p>
-		            <!--   <a href="##" class="btn">more</a> -->
+		            <!--   <a href="##" class="btn">más</a> -->
 		        </div>
 		    </div>
 		</div>
@@ -2355,44 +2356,45 @@ class Layout_View
 		<div class="container">
 		    <div class="row">
 		        <div class="grid_8 list">                               <!--========= List =========-->
-		            <h3 class="list_title">Important Information.</h3>
+		            <h3 class="list_title">Información Importante.</h3>
 		            <div class="list_row">
 		                <div class="list_numb">
 		                    <span>1.</span>
 		                </div>
-		                <p class="p-title"><a href="#">Why Consider Mexico</a></p>
-		                <p>The US & Canadian media jump on any negative Mexican story - often 
-		                   it isn't even verified or correct. And if it is they will always 
-		                   bias it towards the negative.
+		                <p class="p-title"><a href="#">¿Porque considerar México?</a></p>
+		                <p>Los medios de comunicación de los Estados Unidos y Canada así como 
+                           otras partes del mundo creen en cualquier historia proveniente de 
+                           Mexico - a menudo ni siquiera es verificada o es correcta. Y si lo 
+                           es, siempre se enfocan en la negativo.
 		                </p>
 		            </div>
 		            <div class="list_row">
 		                <div class="list_numb">
 		                    <span>2.</span>
 		                </div>
-		                <p class="p-title"><a href="#">Purchase Procedure for non-mexicans</a></p>
-		                <p>Make a written offer containing details of price, dates, conditions, 
-		                   items included or excluded, special circumstances, etc. Accompany your letter 
-		                   with earnest money check to be used as an example of good faith. Attach a 
-		                   Copy of your passport to the offer.
+		                <p class="p-title"><a href="#">Proceso de compra para los no- mexicanos (extranjeros)</a></p>
+		                <p>Hacer una oferta por escrito que contenga detalles de los precios, fechas, 
+                           condiciones, elementos incluidos o excluidos, circunstancias especiales, etc. 
+                           Acompañar su carta con una cheque para ser utilizado como un ejemplo de buena 
+                           fe. Adjunte una copia de su pasaporte a la oferta.
 		                   </p>
 		            </div>
 		            <div class="list_row">
 		                <div class="list_numb">
 		                    <span>3.</span>
 		                </div>
-		                <p class="p-title"><a href="#">Why do non mexicans need a trust</a></p>
-		                <p>For historical reasons, in 1917 the Mexican Congress considered it a matter of 
-		                   national security to limit foreigners from owning property within 100 kilo meters 
-		                   (62 Miles) of the borders, and 50 kilo meters (31 Miles) from the coast, this has 
-		                   hence been included in the Constitution.
+		                <p class="p-title"><a href="#"> ¿Por qué los no-mexicanos (extranjeros) necesitan un fideicomiso?</a></p>
+		                <p>Por razones históricas, en 1917 el Congreso mexicano considero un asunto de 
+                           seguridad nacional  limitar a los extranjeros poseer propiedades dentro de 
+                           los 100 kilómetros (62 millas) de la frontera, y 50 kilómetros (31 millas) 
+                           de la costa, este ha sido, por tanto, incluido en la Constitución.
 		               </p>
 		            </div>
 		        </div>
 		        <div class="grid_4 info">                           <!--========= Info =========-->
-		            <h3 class="info_title">Vacation Rentals</h3>
+		            <h3 class="info_title">Rentas Vacacionales</h3>
 		            <img src="/images/page-2_img-4.jpg" alt="" class="info_img__top">
-		            <p class="p-title"><a href="condos-for-rent.html">See our Listing.</a></p>
+		            <p class="p-title"><a href="condos-for-rent.html">Visita nuestro Listing.</a></p>
 		            <p></p>
 		        </div>
 		    </div>
