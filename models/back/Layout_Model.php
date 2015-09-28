@@ -484,7 +484,7 @@ class Layout_Model
 			$companyId = (int) $data['companyId'];
 			$location_id = (int) $data['location_id'];
 	
-			$query = 'SELECT COUNT(*) FROM companies_ubication
+			$query = 'SELECT COUNT(*) FROM companies_location
 					WHERE company = '.$companyId.'
 					AND ubication = '.$location_id;
 	
@@ -492,13 +492,13 @@ class Layout_Model
 	
 			if ($c > 0)
 			{
-				$query = 'DELETE FROM companies_ubication
+				$query = 'DELETE FROM companies_location
 					WHERE company = '.$companyId.'
 					AND ubication = '.$location_id;
 			}
 			else
 			{
-				$query = 'INSERT INTO companies_ubication(company, ubication)
+				$query = 'INSERT INTO companies_location(company, ubication)
 						VALUES('.$companyId.', '.$location_id.')';
 			}
 	
