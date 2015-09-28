@@ -563,9 +563,9 @@ class Layout_Model
 					WHERE company_id = '.$companyId.' 
 					ORDER BY sliders_id DESC';
 	
-			$sliders = $this->db->getArray($query);
+			return $sliders = $this->db->getArray($query);
 	
-			if (!$sliders)
+			/*if (!$sliders)
 			{
 				$query = 'SELECT slider
 					FROM default_sliders
@@ -576,7 +576,7 @@ class Layout_Model
 			else
 			{
 				return $sliders;
-			}
+			}*/
 		}
 		catch (Exception $e)
 		{
